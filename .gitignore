@@ -109,9 +109,7 @@ buildNumber.properties
 hs_err_pid*
 
 /draft/
-/BioTex/
 /NMF/
-/TreeTagger/
 /Wikipedia_bd/
 /.idea/
 /*.iml
