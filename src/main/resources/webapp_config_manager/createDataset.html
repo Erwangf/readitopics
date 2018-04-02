@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Create Dataset</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/jquery.dm-uploader.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Config Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="configList.html">Configurations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="datasetList.html">Datasets</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main role="main" class="container">
+    <h5>Upload your dataset</h5>
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <form method='post' action="/createDataset" enctype='multipart/form-data'>
+                <input type='file' name='uploaded_file' accept='.zip'>
+                <button class="btn btn-primary">Upload Dataset</button>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+</main>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery.dm-uploader.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+
+
+
+</script>
+</body>
+</html>

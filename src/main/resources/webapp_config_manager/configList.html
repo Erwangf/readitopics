@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Config List</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Config Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="configList.html">Configurations <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="datasetList.html">Datasets</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main role="main" class="container">
+
+    <div class="home">
+        <h1>Readitopics configuration manager</h1>
+        <p class="lead">On this app, you can manage dataset and configurations.</p>
+        <a href="createConfig.html">
+            <button type="button" class="btn btn-primary">Create new config</button>
+        </a>
+    </div>
+    <div class="row" id="result">
+
+    </div>
+
+
+
+
+
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="confirmDelete()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="theTmpl" type="text/x-jsrender">
+<div class="col-md-3" style="padding-bottom:5px">
+    <div class="card" >
+      <div class="card-body">
+        <h5 class="card-title">{{:name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Source : {{:SOURCE}}</h6>
+        <span>Language : {{:LANGUAGE}}</span>
+        <br>
+        <div class="control-buttons">
+            <a href="/editConfig.html?name={{:name}}" class="card-link">edit</a>
+            <a href="#" onclick="launchModal('{{:name}}')" class="card-link">delete</a>
+        </div>
+
+      </div>
+    </div>
+</div>
+</script>
+
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jsrender.min.js"></script>
+
+<script>
+
+    var refresh = function(){
+        $.get( "/configs", function( data ) {
+            var template = $.templates("#theTmpl");
+
+            var htmlOutput = template.render(JSON.parse(data));
+
+            $("#result").html(htmlOutput);
+        });
+    };
+    refresh();
+
+    var tmp = {};
+
+    var launchModal = function(name){
+        console.log(name);
+        $('#confirmModal').modal();
+        tmp.toDelete = name;
+
+    };
+    var confirmDelete = function(){
+        $.get("/config/delete/"+tmp.toDelete,function(message){
+            console.log(message);
+            $('#confirmModal').modal('toggle');
+            refresh();
+        })
+    };
+
+
+
+
+
+
+</script>
+</body>
+</html>

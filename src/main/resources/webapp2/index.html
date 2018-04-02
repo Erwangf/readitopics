@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://app.brix.io/data/project_479c7d66299799c54a585021fea22c51/index.html -->
+	<html lang="en">
+<head>
+<meta http-equiv="Content-Type"
+	content="text/html; charset=windows-1252">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="editor" content="brix.io">
+
+<!-- <title>ReadiTopics: make the topics readable</title>-->
+<title>ReadiTopics: make your topic models readable</title>
+
+<!-- Bootstrap -->
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<!--<link href="./index_files/bootstrap.min(1).css" rel="stylesheet" data-mbcode_theme="true">-->
+<!-- Font Awesome -->
+<link href="./css/font-awesome.min.css" rel="stylesheet">
+
+<link href="./css/bootstrap-slider.css" rel="stylesheet">
+
+<!--c3 CSS-->
+<!-- <link href="./css/c3.min.css" rel="stylesheet">  -->
+<script src="./js/d3.min.js"></script>
+
+<!-- User -->
+<link href="./css/style.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<!--[endif]---->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="./js/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./js/bootstrap-slider.js"></script>
+
+		<script>
+		$(document).ready(function() {
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+		});
+		</script>
+
+		<!--d3 and c3 script-->
+		<!--<script src="./js/d3.v4.min.js"></script>-->
+		<!-- <script charset="utf-8" src="./js/d3.v3.js"></script>
+		<script src="./js/c3.min.js"></script>-->
+
+		<style>
+		.brush {
+			fill: teal;
+		stroke: teal;
+		fill-opacity: 0.2;
+		stroke-opacity: 0.8;
+		}
+		</style>
+
+		</head>
+		<body style = "padding-bottom: 100px;">
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title" style="text-align:center">Log in</h4>
+		</div>
+		<div class="modal-body">
+		<form>
+		<div class="form-group">
+		<label for="who">Whoooo Are you? (who who, who who):</label>
+		<select class="form-control" id="user"></select>
+		</div>
+		<div class="form-group">
+		<label for="pwd">Password:</label>
+		<input type="password" class="form-control" placeholder="Enter password" id="pwd">
+		</div>
+		<!--<button class="btn btn-default" id='but' type='submit'>Go</button>-->
+		<button type="button" class="btn btn-default" onclick="LaunchEvaluation()">Go</button>
+		</form> 
+
+		</div>
+		</div>
+		</div>
+		</div>
+
+		<!-- Modal 2-->
+		<div class="modal fade" id="myModal2" role="dialog">
+		<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title" style="text-align:center">Label Editor</h4>
+		</div>
+		<div class="modal-body">
+		<form>
+		<div class="form-group">
+		<label for="clabel">Enter the wanted label:</label>
+		<input type="text" class="form-control" placeholder=""id = "clabel">
+		<!--<button class="btn btn-default" id='but' type='submit'>Go</button>-->
+		<span class="form-control-static pull-right">
+		<button type="button" class="btn btn-default" onclick="changeTitle($('#clabel').val());$('#myModal2').modal('toggle');">Save</button>
+		</span>
+		</div>
+		</form> 
+
+		</div>
+		</div>
+		</div>
+		</div>
+
+		<!--
+		<span > <button id="evaluation" class="btn btn-primary" data-toggle="modal" data-target="#myModal" >Launch Evaluation</button></span>
+		-->
+
+		<div class="container">
+		<span class="span10">
+		<h1>ReadiTopics</h1>
+		</span>
+		<div class="row">
+
+		<div class="col-md-3 col-lg-3 col-sm-3">
+		<table class="table table-striped">
+		<tbody>
+		<tr>
+		<td style = "vertical-align : middle;">Pick a dataset</td>
+		<td>
+		<select class="form-control" id="datasetlist">
+		</select>
+		</td>
+		</tr>
+		<tr>
+		<td style = "vertical-align : middle;">Pick a topic</td>
+		<td>
+		<select class="form-control" id="topiclist">
+		</select>
+		</td>
+		</tr>
+		</tbody>
+		</table>
+		<!--  <h4>Pick a dataset:</h4>
+		<select class="form-control" id="datasetlist">
+		</select> 
+
+		<h4>Pick a topic:</h4>
+		<select class="form-control" id="topiclist">
+		</select>
+		-->							
+
+		<!--
+		<h4 id="chooseword">Topic <span id="topitwlid">0</span></h4>
+		-->
+
+		<div class="dropdown">Label for the current topic : 
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		<span id ="titleTop" ondrop="drop(event)" ondragover="allowDrop(event)">Select a label for the topic </span>
+		<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" id="listLabelb" aria-labelledby="dropdownMenuDivider">
+
+		</ul>
+		</div>
+		<br>
+		<input id="wordpertopic" type="text" data-slider-min="5" data-slider-max="20" data-slider-step="1" data-slider-value="10" data-slider-orientation="horizontal" data-slider-tooltip="hide"/>							
+
+			<table id="topwordsn" class="table table-borderless table-condensed table-hover"></table>
+
+		<div class="clearfix"></div>
+		<div style="position: relative;">
+		<span id="testC"></span>
+		</div>
+		<!--  <h4>Additionnal informations</h4>-->
+
+		<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Coherence measures</div>
+
+		<!-- Table -->
+		<table class="table">
+		<!-- <tr>
+		<td>NPMI</td>
+		<td><span id="npmi"></span></td>
+		</tr>-->
+		<tr>
+		<td>Umass</td>
+		<td><span id="umass"></span></td>
+		</tr>
+		<tr>
+		<td>Uci</td>
+		<td><span id="uci"></span></td>
+		</tr>
+		<tr>
+		<td>Distance to Background Topic</td>
+		<td><span id="dbt"></span></td>
+		</tr>
+		</table>
+		</div>					
+		<b>Description of the dataset <span id="titledatas"></span></b>
+		<p id="descriptiondatas"></p>				
+
+		</div>
+
+		<div class="col-md-8 col-lg-8 col-sm-8">
+
+		<div style="position: relative;">
+		<span id="title_topic"></span>
+		</div>
+
+
+		<div class="row">
+		<div class="col-md-11 col-lg-11 col-sm-11">
+		<div id="graphviz" style="position: relative;"></div>		
+		</div>	
+		<div class="col-md-1 col-lg-1 col-sm-1">
+		<input id="myslider" data-slider-id='for_slider_style' type="text" data-slider-min="3" data-slider-max="10" data-slider-step="1" data-slider-value="3" data-slider-orientation="vertical"/>					
+			<a href="#" onClick="next_button();"> <span style="font-size:1.8em;" class="glyphicon glyphicon-forward" aria-hidden="true"></span></a>
+			</div>
+			</div>
+
+
+
+			</br>
+
+			<div id = "container_td" style="position: relative;margin-bottom: 10px;">
+			<span id="topcdocs3" style="position: relative;margin-bottom: 20px;"></span>  
+			<div class="btn-toolbar" role="toolbar" aria-label="tbwbg">
+			<div id ="list_td" class="btn-group btn-group-sm" role="group" aria-label="fg">
+			</div></div>
+			<div id="demo3" class="collapse" style=" text-align: justify; display: inline-block;margin-bottom: 100px;">
+			<span id="docs3" style="display: inline-block;overflow: auto;">   
+			</span>
+			</div> 
+			</span>
+			</div>
+
+			<div style="overflow: auto; margin-bottom : 40px">	
+			<span id="topiclabels" style="position: relative; top:0px;"><h4 >What could topic <span id="topic_selected">0</span> mean? Below are some suggested labels:</h4>
+			<table id="labels" class="table table-borderless table-condensed table-hover">					
+			</table>
+			</span>
+			</div>
+
+			</div><div class="col-md-1 col-lg-1 col-sm-1">
+			<p class="h5">Release previously hidden topics:</p>
+			<div class="btn-group" role="group" id="hidden_topics_list">
+			</div>
+			</div>
+			
+			</div>
+
+			</div>
+			
+			<div class="navbar navbar-default navbar-fixed-bottom" >
+			<div class="container">
+			<p class="navbar-text pull-left">
+			2017 - <a href="http://www.universite-lyon.fr/">Universit&eacute; de Lyon</a>  -  <b>Readitopics</b> is a visualization application developed at the University of Lyon (ERIC, LHC) with a close collaboration with Montpellier (LIRMM, TETIS). It allows a user to browse the results of a topic model and find the best possible label to get an understanding of the topics' content.
+			</p>
+
+			</div>
+			</div>
+
+			<!-- <div class="form-group">
+			<button id="colap" class="btn btn-info" data-toggle="collapse" data-target="#demo" onclick = ChangeCollapseBut()>Learn more</button>
+			<div id="demo" class="collapse" style=" text-align: justify"><b>Readitopics</b> is a visualization application developed at the University of <b>Lyon</b> with a close collaboration with <b>Montpellier</b> and <b>TETIS</b>. It allows a user to browse the results of a topic model and find the best possible label to get an understanding of the topics' content.</div>
+			--> 
+
+
+			<!--d3 script-->
+			<!--<script src="./js/d3.v4.min.js"></script>-->
+			<!--<script src="./js/graphique.js"></script>-->
+
+			<!--Include topics script-->
+			<script src="./js/script.js"></script>
+			<script src="./js/graphviz.js"></script>
+			</body>
+
+			</html>

@@ -1,0 +1,233 @@
+.modal-graphique {
+	width: 1100px;
+}
+
+.ul-word > li > a {
+	padding-left: 10px;
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+
+.graphique {
+	min-height: 400px;
+}
+.defaultgraph {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.table-borderless td,
+.table-borderless th {
+    border: 0;
+}
+.quotetext {
+	font-size:14px;
+	text-align: justify;
+    text-justify: inter-word;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.tooltip {
+  position: absolute;
+  min-width: 200px;
+  min-height: 58px;
+  background
+  pointer-events: none;
+  //max-width: 100%;
+  //max-height: 100%;
+}
+
+.tooltip-inner {
+           max-width: 80vw;
+         //   white-space: nowrap;
+            min-width: 100px; //the minimum width
+            text-align:justify;
+        }
+
+.loader {
+	display: none;
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    animation: spin 2s linear infinite;
+    div.inline { float:left; }
+    
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.modal-dialog {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+.topic {
+  display:inline;
+  padding:.2em .6em .3em;
+  font-size:75%;
+  font-weight:700;
+  line-height:1;  
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:baseline;
+  border-radius:.25em
+}
+
+.transp {
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border: none;
+   padding: 0;
+}
+
+.colored_title {
+	color: #4285BE;
+}
+
+#for_slider_style {
+	height: 100px;
+}
+
+#slider_words_style .slider-selection {
+	background: #BABABA;
+}
+
+#for_slider_style .slider-selection {
+	background: #BABABA;
+}
+
+.top_align {
+	vertical-align: top;
+}
+
+.padding_top_10px {
+	padding-top: 50px;
+}
+
+
+.breadcrumb-arrow {
+    height: 36px;
+    padding: 0;
+    line-height: 36px;
+    list-style: none;
+    background-color: #e6e9ed
+}
+.breadcrumb-arrow li:first-child a {
+    border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px
+}
+.breadcrumb-arrow li, .breadcrumb-arrow li a, .breadcrumb-arrow li span {
+    display: inline-block;
+    vertical-align: top
+}
+.breadcrumb-arrow li:not(:first-child) {
+    margin-left: -5px
+}
+.breadcrumb-arrow li+li:before {
+    padding: 0;
+    content: ""
+}
+.breadcrumb-arrow li span {
+    padding: 0 10px
+}
+.breadcrumb-arrow li a, .breadcrumb-arrow li:not(:first-child) span {
+    height: 36px;
+    padding: 0 10px 0 25px;
+    line-height: 36px
+}
+.breadcrumb-arrow li:first-child a {
+    padding: 0 10px
+}
+.breadcrumb-arrow li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    background-color: #3bafda;
+    border: 1px solid #3bafda
+}
+.breadcrumb-arrow li:first-child a {
+    padding-left: 10px
+}
+.breadcrumb-arrow li a:after, .breadcrumb-arrow li a:before {
+    position: absolute;
+    top: -1px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent
+}
+.breadcrumb-arrow li a:before {
+    right: -10px;
+    z-index: 3;
+    border-left-color: #3bafda;
+    border-left-style: solid;
+    border-left-width: 11px
+}
+.breadcrumb-arrow li a:after {
+    right: -11px;
+    z-index: 2;
+    border-left: 11px solid #2494be
+}
+.breadcrumb-arrow li a:focus, .breadcrumb-arrow li a:hover {
+    background-color: #4fc1e9;
+    border: 1px solid #4fc1e9
+}
+.breadcrumb-arrow li a:focus:before, .breadcrumb-arrow li a:hover:before {
+    border-left-color: #4fc1e9
+}
+.breadcrumb-arrow li a:active {
+    background-color: #2494be;
+    border: 1px solid #2494be
+}
+.breadcrumb-arrow li a:active:after, .breadcrumb-arrow li a:active:before {
+    border-left-color: #2494be
+}
+.breadcrumb-arrow li span {
+    color: #434a54
+}
+
+.selected_inter_node {
+	fill: #F3A200	
+}
+
+.front {
+  background: white;
+  overflow: hidden;
+}
+
+.back{
+  background: white;
+  overflow: hidden;
+}
+
+.form-group{
+margin-bottom : 100px;
+}
+
+.padright td{
+	padding-left: 30px;
+}

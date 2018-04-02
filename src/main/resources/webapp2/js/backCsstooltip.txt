@@ -1,0 +1,8 @@
+  position: absolute;
+  width: 300px;
+  height: 45px;
+  pointer-events: none;
+  border: 1px solid #000;
+  background-color: #FFF;
+  border-radius: 5px;
+  padding:10px;

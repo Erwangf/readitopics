@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Configurations</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Config Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="configList.html">Configurations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="datasetList.html">Datasets</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main role="main" class="container">
+    <h5>General Informations</h5>
+    <div class="row">
+
+        <div class="col-md-3">
+            <label for="name">Name</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="name" required>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="source">Source</label>
+            <div class="input-group mb-3">
+                <select class="custom-select" id="SOURCE" required>
+                    <option value="">--</option>
+                    <option value="folder.books">folder.books</option>
+                    <option value="csv">csv</option>
+                    <option value="folder" selected>folder</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="LANGUAGE">Language</label>
+            <div class="input-group mb-3">
+                <select class="custom-select" id="LANGUAGE" required>
+                    <option value=""> --</option>
+                    <option value="english">english</option>
+                    <option value="french">french</option>
+                    <option value="spanish">spanish</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="DATA">Dataset name</label>
+            <div class="input-group mb-3">
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="DATA" required></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="PREPROCESS">Preprocessing</label>
+            <div class="input-group mb-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="PREPROCESS" value="tolower,punct,stopwords,min=2">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="PATH">Project path</label>
+            <div class="input-group mb-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="PATH" value=".">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="STOPLIST">Stoplist path</label>
+            <div class="input-group mb-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="STOPLIST" value="BioTex/stopWords/Stop-words-english.txt">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <h5>LDA</h5>
+    <div class="row">
+
+        <div class="col-md-2 offset-1">
+            <label for="NB_THREADS">Threads</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="NB_THREADS" value="4">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="NB_ITER">Iterations</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="NB_ITER" value="200">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="NB_TOPICS">Nb of topics</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="NB_TOPICS" value="20">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="ALPHA">Alpha</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="ALPHA">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label for="BETA">Beta</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="BETA">
+            </div>
+        </div>
+
+    </div>
+
+
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-3" style="border-right: 1px dashed #DDDDDD;">
+            <h5>CSV Options</h5>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="TITLE">Title</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="TITLE">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="AUTHOR">Author</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="AUTHOR">
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="TEXT">Text</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="TEXT">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="ID">ID</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="ID">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-9">
+            <h5>Miscellaneous</h5>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="TIME">Time</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="TIME">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="DATES">Dates</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="DATES">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="BIOTEX_TMP">BioTex Temporary directory </label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="BIOTEX_TMP">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="VOCABULARY">Vocabulary</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="VOCABULARY" value="TF">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="SIZE_VOCAB">Vocabulary size</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="SIZE_VOCAB">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="SKIPTERMS">Skip terms</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="SKIPTERMS">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="INDEX_LUCENE">Index lucene path</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="INDEX_LUCENE">
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4 text-center">
+            <button type="button" id="resetButton" class="btn btn-secondary">Reset</button>
+            <button type="button" id="createButton" class="btn btn-primary">Create Config</button>
+        </div>
+    </div>
+    <br>
+
+
+</main>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Missing Informations</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Some required information are missing :
+                <ul id="missingList"></ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    $.get("/datasets", function (data) {
+        data = JSON.parse(data);
+        for (var i = 0; i < data.length; i++) {
+            var name = data[i].name;
+            $("#DATA").append('<option val=' + name + '>' + name + '</option>');
+        }
+
+    });
+
+    $('#resetButton').click(function() {
+        location.reload();
+    });
+
+    $("#createButton").click(function () {
+        var data = {};
+        var missing = [];
+        // get all input.form-control (all except selects)
+        $("input.form-control, select.custom-select").each(function (index) {
+
+            if ($(this).val() !== "") {
+                data[$(this).attr("id")] = $(this).val();
+            } else {
+                if ($(this).attr("required") === "required") {
+                    missing.push($(this).attr("id"))
+                }
+            }
+        });
+        console.log(data);
+        console.log(missing);
+        if (missing.length > 0) {
+            $('#missingList').html(missing.map(function (a) {
+                return "<li>" + a + "</li>"
+            }));
+
+            $('#myModal').modal();
+        } else {
+            $.ajax({
+                url: '/createConfig',
+                type: 'POST',
+                data: {
+                    json: JSON.stringify(data)
+                },
+                dataType: 'json'
+            });
+        }
+
+
+    });
+</script>
+</body>
+</html>
