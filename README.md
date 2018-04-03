@@ -2,29 +2,20 @@
 
 ## Présentation
 
-[Changelog](./CHANGELOG.md)
 
-## Installation via Eclipse
-Vous devez disposer de Java 8 et d'Eclipse Neon ou une version plus récente.
 
-Le moyen le plus simple est de cloner le répertoire quelquepart, puis d'importer un nouveau
-répertoire via Eclipse.
 
-Les fichiers de configuration d'Eclipse ( et d'autres IDE ) sont par défaut ignorés par Git
-sur ce projet, donc il faudra choisir l'option "create a new project". [TODO : à documenter]
-
-Ensuite, il faut mettre à jour les dépendances Maven d'Eclipse [TODO : à documenter]
-
-## Installation personnalisée
+## Install from sources
 
 ### Maven
-Vous devez disposer de Maven (>3.3) et de Java 8 (JDK).
+You will need Java 8, Maven 3 and Perl 5.
 
-Mettre à jour les dépendances Maven, depuis le répertoire du projet :
+Update the Maven dependancies :
 
 ```
 maven clean install
 ```
+
 
 ## Emplacement des jeux de données
 
@@ -42,32 +33,35 @@ Plusieurs classes exécutables  sont disponibles :
 
 ### BrowseTopics
 
-__Paramètres :__
-- data (optionnel) : charge un jeu de donnée au démarrage
 
 __Exemple :__
 
 ```
 java -cp readitopics.jar exe.BrowseTopics
-java -cp readitopics.jar exe.BrowseTopics monFichierData
 ```
 
 
 __Usage :__
 
-Utiliser la commande ``help`` pour afficher une liste de commande.
+Use the  ``help`` command to print a list of commands.
 
-__Utilisateurs de Windows__ :
+__Windows Users :__ 
 
-Afin de pouvoir utiliser BrowseTopic via un IDE sous Windows, il faut utiliser l'option Java suivante :
+In order to use BrowseTopic via an IDE on Windows, you must use the following Java option :
 
 ```
 -Djline.WindowsTerminal.directConsole=false
 ```
 
-## Auteurs
+## Authors
 
-- Julien VELCIN - professeur Université Lyon 2 - [>> Site web](http://mediamining.univ-Lyon2.fr/velcin)
+- Julien VELCIN - Laboratoire ERIC - [>> Website](http://mediamining.univ-Lyon2.fr/velcin)
+- Antoine GOURRU - Laboratoire ERIC - [>> Website](http://antoinegourru.com)
+- Erwan GIRY-FOUQUET - Laboratoire ERIC - [>> Website](http://erwangf.com)
+- Christophe Gravier - Laboratory Télécom Claude Chappe -  (christophe.gravier@univ-st-etienne.fr)
+- Mathieu Roche - CIRAD - (mathieu.roche@cirad.fr)
+- Pascal Poncelet - LIRMM - (pascal.poncelet@lirmm.fr)
+
 
 
 ## Licence
