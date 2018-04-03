@@ -1,13 +1,20 @@
 # ReadiTopics
 
-## Présentation
+# Online demo
+(http://mediamining.univ-lyon2.fr/readitopics/)
 
 
+# Install from JAR quick starter
+
+Download the JAR quick starter here : 
+http://mediamining.univ-lyon2.fr/velcin/public/readitopics_starter.zip
+
+Then follow the [guide](./documentation/INSTALL.pdf).
 
 
-## Install from sources
+# Install from sources
 
-### Maven
+## Maven
 You will need Java 8, Maven 3 and Perl 5.
 
 Update the Maven dependancies :
@@ -17,19 +24,7 @@ maven clean install
 ```
 
 
-## Emplacement des jeux de données
-
-Les fichiers de configuration doivent être copiés dans le répertoire *config*.
-Les jeux de données doivent être copiés dans le répertoire *data*.
-
-Un exemple de fichier de configuration est disponible dans le répertoire *config*.
-
-
-
-
-## Utilisation
-
-Plusieurs classes exécutables  sont disponibles :
+## Usage
 
 ### BrowseTopics
 
@@ -61,9 +56,5 @@ In order to use BrowseTopic via an IDE on Windows, you must use the following Ja
 - Christophe Gravier - Laboratory Télécom Claude Chappe -  (christophe.gravier@univ-st-etienne.fr)
 - Mathieu Roche - CIRAD - (mathieu.roche@cirad.fr)
 - Pascal Poncelet - LIRMM - (pascal.poncelet@lirmm.fr)
-
-
-
-## Licence
 
 
