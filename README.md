@@ -48,6 +48,11 @@ In order to use BrowseTopic via an IDE on Windows, you must use the following Ja
 -Djline.WindowsTerminal.directConsole=false
 ```
 
+## Citation
+In orter to cite this work, you can use the following reference :
+
+_J. Velcin, A. Gourru, E. Giry-Fouquet, C. Gravier, M. Roche and P. Poncelet. Readitopics: Make Your Topic Models Readable via Labeling and Browsing. Proceedings of the  27th International Joint Conference on Artificial Intelligence (IJCAI, demo track), pp.5874-5876, Stockholm, Sweden._
+
 ## Authors
 
 - Julien VELCIN - Laboratoire ERIC - [>> Website](http://mediamining.univ-Lyon2.fr/velcin)
